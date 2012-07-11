@@ -22,4 +22,10 @@ h1{
 	background: #333;
 	display: block;
 	margin:0 auto 20px;
+	cursor: pointer;
+	width: 640px;
+	height: 480px;
+	color: #FFF;
+	line-height: 480px;
+	text-align: center;
 }
