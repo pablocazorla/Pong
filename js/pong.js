@@ -132,8 +132,7 @@
 			}
 		}
 		
-	//Buttons
-		
+	//Buttons		
 		btnPlay = {
 			x : cfg.middle - 60,
 			y : 340,
@@ -316,10 +315,10 @@
 					c.save();
 					c.fillStyle = '#999';
 					cfg.fontSize(12);
-					c.fillText ('- To pause the game, press Esc key.', cfg.middle, 280);
-					c.fillText ('- Press left and right key arrows to move the Left Pad down and up.', cfg.middle, 295);
+					c.fillText ('- To pause the game, press SPACEBAR key.', cfg.middle, 280);
+					c.fillText ('- Press UP and DOWN key arrows to move the Left Pad up and down.', cfg.middle, 295);
 					if(!cfg.humanVsPC){
-						c.fillText ('- Press Z and C key to move the Right Pad down and up.', cfg.middle, 310);
+						c.fillText ('- Press Q and A key to move the Right Pad up and down.', cfg.middle, 310);
 					}
 					c.restore();
 					
@@ -426,9 +425,10 @@
 				break;
 		};
 	});
-	on(document,'keypress',function(ev){
+	on(document,'keydown',function(ev){
 		ev = ev ? ev : window.event;
 		var key = ev.charCode ? ev.charCode : ev.keyCode;
+		log(key)
 		//Screens
 		switch(currentScreen){
 			case 'start':
@@ -441,23 +441,23 @@
 				
 			case 'game':
 				switch(key){
-					case 39:
+					case 38:
 						//arriba
 						padB.dir = -1;
 						break;				
-					case 37:
+					case 40:
 						//abajo
 						padB.dir = 1;
 						break;
-					case 99:
+					case 81:
 						//arriba
 						if(!cfg.humanVsPC) padA.dir = -1;
 						break;				
-					case 122:
+					case 65:
 						//abajo
 						if(!cfg.humanVsPC) padA.dir = 1;
 						break;					
-					case 27:
+					case 32:
 						currentScreen = 'pause';
 						break;	
 				};
@@ -475,7 +475,7 @@
 	on(document,'keyup',function(ev){
 		ev = ev ? ev : window.event;
 		var key = ev.charCode ? ev.charCode : ev.keyCode;
-		log(key)
+		
 		//Screens
 		switch(currentScreen){
 			case 'start':
@@ -488,20 +488,20 @@
 				
 			case 'game':
 				switch(key){
-					case 39:
+					case 38:
 						//arriba
 						padB.dir = 0;
 						break;				
-					case 37:
+					case 40:
 						//abajo
 						padB.dir = 0;
 						break;
-					case 90:
+					case 81:
 						//arriba
 						if(!cfg.humanVsPC) padA.dir = 0;
 						
 						break;				
-					case 67:
+					case 65:
 						//abajo
 						if(!cfg.humanVsPC) padA.dir = 0;
 						break;		
