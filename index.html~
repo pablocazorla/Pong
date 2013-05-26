@@ -7,7 +7,6 @@
 		<script>document.createElement('canvas');</script>
 	</head>
 	<body>
-
 		<div class="page">
 			<h1>Pong Canvas</h1>
 			<canvas id="pong" width="640" height="480">
